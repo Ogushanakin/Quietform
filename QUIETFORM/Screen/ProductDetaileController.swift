@@ -26,6 +26,7 @@ final class ProductDetaileController: UITableViewController {
         return button
     }()
     
+    private let footerView = FooterView()
     
     // MARK: - Lifecycle
     
@@ -46,9 +47,10 @@ final class ProductDetaileController: UITableViewController {
         navigationItem.setRightBarButtonItems([basketbutton, likeButton, searchButton], animated: true)
         
         tableView.separatorStyle = .none
-        tableView.tableFooterView = FooterView()
         tableView.rowHeight = 360
         tableView.register(ProductCell.self, forCellReuseIdentifier: reuseIdentifier)
+        tableView.tableFooterView = footerView
+        footerView.frame = .init(x: 0, y: 0, width: view.frame.width, height: 440)
     }
     
     @objc func showMenu() {
